@@ -84,7 +84,12 @@ def div(x, y):
 
 # x ^ y
 def exp(x, y):
-    pass
+    z = [1]
+    while com.list_to_int(y) > 0:
+        y, s = sub(y, [1])
+        if com.list_to_int(y) >= 0:
+            z = mul(x, z)
+    return z
 
 
 # x % of y
