@@ -19,16 +19,35 @@ def add(x, y):
 def sub(x, y):
     rx = len(x)
     ry = len(y)
+    s = 1
+    if rx < ry:
+        t = x
+        x = y
+        y = t
+        s = -1
+    if rx == ry:
+        i = rx - 1
+        while i >= 0 and x[i] == y[i]:
+            i -= 1
+        if i >= 0 and x[i] < y[i]:
+            t = x
+            x = y
+            y = t
+            s = -1
     x, y = com.equalize(x, y)
     z = [0] * len(x)
-    s = 1
     ind = 0
     for i in range(0, len(x) - 1):
         if x[i] >= y[i]:
             z[i] = x[i] - y[i]
         else:
-            pass
-
+            j = i + 1
+            while j < rx and x[j] == 0:
+                x[j] = 9
+                j -= 1
+            x[j] -= 1
+            x[i] += 10
+            z[i] = x[i] - y[i]
 
     return z, s
 
