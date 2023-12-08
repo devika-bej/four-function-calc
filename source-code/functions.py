@@ -54,7 +54,21 @@ def sub(x, y):
 
 # x * y
 def mul(x, y):
-    pass
+    rx = len(x)
+    ry = len(y)
+    z = []
+    i = 0
+    while i < rx:
+        t = [0] * (i + ry + 1)
+        j = i
+        for k in y:
+            p = k * x[i]
+            t[j] += p % 10
+            t[j + 1] += int(p / 10)
+            j += 1
+        i += 1
+        z = add(z, t)
+    return z
 
 
 # x / y
@@ -64,11 +78,6 @@ def div(x, y):
 
 # x ^ y
 def exp(x, y):
-    pass
-
-
-# sqrt(x)
-def sqrt(x):
     pass
 
 
