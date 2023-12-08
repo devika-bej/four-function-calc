@@ -44,7 +44,7 @@ def sub(x, y):
             j = i + 1
             while j < rx and x[j] == 0:
                 x[j] = 9
-                j -= 1
+                j += 1
             x[j] -= 1
             x[i] += 10
             z[i] = x[i] - y[i]
@@ -73,7 +73,13 @@ def mul(x, y):
 
 # x / y
 def div(x, y):
-    pass
+    z = []
+    s = 1
+    while s == 1:
+        x, s = sub(x, y)
+        if s == 1:
+            z = add(z, [1])
+    return z
 
 
 # x ^ y
