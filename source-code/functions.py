@@ -92,7 +92,7 @@ def mul(x, sx, y, sy):
 
 # x / y
 def div(x, sx, y, sy):
-    if y[0] == 0:
+    if len(y) == 1 and y[0] == 0:
         return [], 0
     z = []
     sd = 1
@@ -110,11 +110,12 @@ def div(x, sx, y, sy):
 # x ^ y
 def exp(x, sx, y):
     z = [1]
+    t = y
     while com.list_to_int(y) > 0:
         y, s = sub(y, 1, [1], 1)
         if com.list_to_int(y) >= 0:
-            z = mul(x, 1, z, 1)
-    if y % 2 == 0:
+            z, s = mul(x, 1, z, 1)
+    if t[0] % 2 == 0:
         s = 1
     else:
         s = sx
