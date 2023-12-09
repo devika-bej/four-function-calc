@@ -39,7 +39,7 @@ while 1:
         case "-":
             z, s = fun.sub(x, sx, y, sy)
         case "*":
-            z = fun.mul(x, y)
+            z, s = fun.mul(x, sx, y, sy)
         case "/":
             z = fun.div(x, y)
         case "^":

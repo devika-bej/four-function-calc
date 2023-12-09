@@ -15,7 +15,7 @@ def add(x, sx, y, sy):
                 z[i + 1] += int(t / 10)
         return z, sx
     else:
-        z, s = sub(x, y)
+        z, s = sub(x, 1, y, 1)
         if sx == 1:
             return z, s
         else:
@@ -63,7 +63,7 @@ def sub(x, sx, y, sy):
 
 
 # x * y
-def mul(x, y):
+def mul(x, sx, y, sy):
     rx = len(x)
     ry = len(y)
     z = []
@@ -77,8 +77,8 @@ def mul(x, y):
             t[j + 1] += int(p / 10)
             j += 1
         i += 1
-        z = add(z, t)
-    return z
+        z, s = add(z, 1, t, 1)
+    return z, sx * sy
 
 
 # x / y

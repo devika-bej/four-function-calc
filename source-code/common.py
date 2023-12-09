@@ -17,7 +17,7 @@ def list_to_int(x):
     y = 0
     fac = 1
     dec = []
-    if x[2] == ".":
+    if len(x) > 2 and x[2] == ".":
         dec = x[:2]
         x = x[3:]
     for i in x:
