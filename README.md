@@ -6,7 +6,7 @@ A four function calculator, simulated using a Turing machine in python
 
 Run the driver.py file in the directory source-code\
 You'll be prompted to enter the required calculation\
-Enter it in the following formate
+Enter it in the following format
 
 ```
 x <symbol> y
@@ -14,8 +14,10 @@ x <symbol> y
 
 x, y being the numbers to calculate upon\
 Once you get your answer\
-You will be prompted with if you want more calculations to be done\
-y for Yes and n for No
+You will be asked if you want to do more calculations\
+Respond with\
+y for Yes\
+n for No
 
 ## Features
 
