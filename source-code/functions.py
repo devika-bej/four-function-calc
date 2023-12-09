@@ -123,6 +123,6 @@ def exp(x, sx, y):
 
 # x % of y
 def perc(x, y):
-    z = mul(x, y)
+    z, s = mul(x, 1, y, 1)
     z.insert(2, ".")
     return z
