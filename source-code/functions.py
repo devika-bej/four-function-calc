@@ -78,6 +78,7 @@ def mul(x, sx, y, sy):
             p = k * x[i]
             p = str(p)
             p = [*p]
+            p = [int(r) for r in p]
             if len(p) == 1:
                 t[j] += p[0]
             else:
@@ -91,6 +92,8 @@ def mul(x, sx, y, sy):
 
 # x / y
 def div(x, sx, y, sy):
+    if y[0] == 0:
+        return [], 0
     z = []
     sd = 1
     while sd == 1:

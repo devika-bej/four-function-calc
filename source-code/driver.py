@@ -5,7 +5,7 @@ import re
 while 1:
     com.clr_screen()
 
-    comm = input("Enter the calculation you want me to do :) ")
+    comm = input("Let me do the calculation you want <3 ")
     comm = [*comm]
     comm = [i for i in comm if i != " "]
     sx = 1
@@ -46,15 +46,24 @@ while 1:
             z, s = fun.exp(x, sx, y)
         case "%":
             z = fun.perc(x, y)
-
-    z = com.list_to_int(z)
-    z *= s
-    print(f"You answer is {z}")
-
-    more = input("Do you want to do more calculations? (y/n) ")
-    if more == "y":
-        continue
+    if s != 0:
+        z = com.list_to_int(z)
+        z *= s
+        print(f"Your answer is {z}")
     else:
-        com.clr_screen()
-        print("Buh bye <3")
+        print("Your answer is NaN")
+
+    f = 1
+    while 1:
+        more = input("Do you want to do more calculations? (y/n) ")
+        if more == "y":
+            f = 0
+            break
+        elif more == "n":
+            com.clr_screen()
+            print("Buh bye <3")
+            break
+        else:
+            print("Sorry, what do you mean?")
+    if f:
         break

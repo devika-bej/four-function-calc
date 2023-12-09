@@ -56,3 +56,10 @@ Raises x to the y the power and returns that value
 Input form:
 `x % y`\
 Calculates x percent of y and returns that value
+
+### Please note:
+
+This calculator comes with some restrictions\
+While negative valued inputs are welcome\
+The exponent function, (`x^y`), can only accept `y >= 0`\
+The percentage function, (`x%y`), can only accept `x,y >= 0`
