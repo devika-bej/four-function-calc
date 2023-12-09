@@ -2,54 +2,64 @@ import common as com
 
 
 # x + y
-def add(x, y):
-    x, y = com.equalize(x, y)
-    z = [0] * len(x)
-    for i in range(0, len(x) - 1):
-        t = x[i] + y[i] + z[i]
-        if t < 10:
-            z[i] = t
+def add(x, sx, y, sy):
+    if sx == sy:
+        x, y = com.equalize(x, y)
+        z = [0] * len(x)
+        for i in range(0, len(x) - 1):
+            t = x[i] + y[i] + z[i]
+            if t < 10:
+                z[i] = t
+            else:
+                z[i] = t % 10
+                z[i + 1] += int(t / 10)
+        return z, sx
+    else:
+        z, s = sub(x, y)
+        if sx == 1:
+            return z, s
         else:
-            z[i] = t % 10
-            z[i + 1] += int(t / 10)
-    return z
+            return z, -s
 
 
 # x - y
-def sub(x, y):
-    rx = len(x)
-    ry = len(y)
-    s = 1
-    if rx < ry:
-        t = x
-        x = y
-        y = t
-        s = -1
-    if rx == ry:
-        i = rx - 1
-        while i >= 0 and x[i] == y[i]:
-            i -= 1
-        if i >= 0 and x[i] < y[i]:
+def sub(x, sx, y, sy):
+    if sx == sy:
+        rx = len(x)
+        ry = len(y)
+        s = 1
+        if rx < ry:
             t = x
             x = y
             y = t
             s = -1
-    x, y = com.equalize(x, y)
-    z = [0] * len(x)
-    ind = 0
-    for i in range(0, len(x) - 1):
-        if x[i] >= y[i]:
-            z[i] = x[i] - y[i]
-        else:
-            j = i + 1
-            while j < rx and x[j] == 0:
-                x[j] = 9
-                j += 1
-            x[j] -= 1
-            x[i] += 10
-            z[i] = x[i] - y[i]
-
-    return z, s
+        if rx == ry:
+            i = rx - 1
+            while i >= 0 and x[i] == y[i]:
+                i -= 1
+            if i >= 0 and x[i] < y[i]:
+                t = x
+                x = y
+                y = t
+                s = -1
+        x, y = com.equalize(x, y)
+        z = [0] * len(x)
+        ind = 0
+        for i in range(0, len(x) - 1):
+            if x[i] >= y[i]:
+                z[i] = x[i] - y[i]
+            else:
+                j = i + 1
+                while j < rx and x[j] == 0:
+                    x[j] = 9
+                    j += 1
+                x[j] -= 1
+                x[i] += 10
+                z[i] = x[i] - y[i]
+        return z, s * sx
+    else:
+        z, s = add(x, 1, y, 1)
+        return z, sx
 
 
 # x * y
@@ -94,6 +104,6 @@ def exp(x, y):
 
 # x % of y
 def perc(x, y):
-    z = mul(x,y)
-    z.insert(2,'.')
+    z = mul(x, y)
+    z.insert(2, ".")
     return z

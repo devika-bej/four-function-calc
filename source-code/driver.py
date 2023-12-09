@@ -8,16 +8,24 @@ while 1:
     comm = input("Enter the calculation you want me to do :) ")
     comm = [*comm]
     comm = [i for i in comm if i != " "]
+    sx = 1
     x = []
+    sy = 1
     y = []
     f = []
     i = 0
 
+    if comm[i] == "-":
+        sx = -1
+        i += 1
     while i < len(comm) and com.isnum(comm[i]):
         x.append(int(comm[i]))
         i += 1
     f.append(comm[i])
     i += 1
+    if comm[i] == "-":
+        sy = -1
+        i += 1
     while i < len(comm):
         y.append(int(comm[i]))
         i += 1
@@ -27,9 +35,9 @@ while 1:
     s = 1
     match f[0]:
         case "+":
-            z = fun.add(x, y)
+            z, s = fun.add(x, sx, y, sy)
         case "-":
-            z, s = fun.sub(x, y)
+            z, s = fun.sub(x, sx, y, sy)
         case "*":
             z = fun.mul(x, y)
         case "/":
