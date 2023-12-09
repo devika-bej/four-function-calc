@@ -16,9 +16,16 @@ def isnum(n):
 def list_to_int(x):
     y = 0
     fac = 1
+    dec = []
+    if x[2] == ".":
+        dec = x[:2]
+        x = x[3:]
     for i in x:
         y = y + i * fac
         fac *= 10
+    if dec:
+        y += dec[1] / 10
+        y += dec[0] / 100
     return y
 
 

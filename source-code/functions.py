@@ -94,4 +94,6 @@ def exp(x, y):
 
 # x % of y
 def perc(x, y):
-    pass
+    z = mul(x,y)
+    z.insert(2,'.')
+    return z
