@@ -41,9 +41,9 @@ while 1:
         case "*":
             z, s = fun.mul(x, sx, y, sy)
         case "/":
-            z = fun.div(x, y)
+            z, s = fun.div(x, sx, y, sy)
         case "^":
-            z = fun.exp(x, y)
+            z, s = fun.exp(x, sx, y)
         case "%":
             z = fun.perc(x, y)
 
