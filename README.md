@@ -19,6 +19,8 @@ Respond with\
 y for Yes\
 n for No
 
+You can also enter 0 when asked to enter calculation, to exit the calculator
+
 ## Features
 
 ### `+`

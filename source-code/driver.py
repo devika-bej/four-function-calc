@@ -6,6 +6,12 @@ while 1:
     com.clr_screen()
 
     comm = input("Let me do the calculation you want <3 ")
+
+    if comm == "0":
+        com.clr_screen()
+        print("Buh bye <3")
+        break
+
     comm = [*comm]
     comm = [i for i in comm if i != " "]
     sx = 1
@@ -15,8 +21,19 @@ while 1:
     f = []
     i = 0
 
+    if not com.syntax_check(comm):
+        print("Sorry, I don't get what you mean")
+        print("I think you entered the wrong syntax or broke the restriction :(")
+        print("The correct syntax is x <symbol> y")
+        print("Please read the note in the end of the README.md for restrictions")
+        com.cont()
+        continue
+
     if comm[i] == "-":
         sx = -1
+        i += 1
+    elif comm[i] == "+":
+        sx = 1
         i += 1
     while i < len(comm) and com.isnum(comm[i]):
         x.append(int(comm[i]))
@@ -25,6 +42,9 @@ while 1:
     i += 1
     if comm[i] == "-":
         sy = -1
+        i += 1
+    elif comm[i] == "+":
+        sy = 1
         i += 1
     while i < len(comm):
         y.append(int(comm[i]))

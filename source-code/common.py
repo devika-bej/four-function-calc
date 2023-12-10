@@ -6,7 +6,7 @@ def clr_screen():
 
 
 def cont():
-    cont = input("press enter to continue")
+    cont = input("Press enter to continue")
 
 
 def isnum(n):
@@ -52,3 +52,43 @@ def deci_complement(x, ind):
     for i in range(0, ind):
         x[i] = 10 - x[i]
     return x
+
+
+def syntax_check(comm):
+    # print("in syntax check we are checking ", comm)
+    if len(comm) < 3:
+        return False
+    if not (isnum(comm[0]) or comm[0] == "-" or comm[0] == "+"):
+        return False
+    i = 1
+    while i < len(comm) and isnum(comm[i]):
+        i += 1
+    if i == len(comm) or (i == 1 and not isnum(comm[0])):
+        return False
+    if not (
+        comm[i] == "+"
+        or comm[i] == "-"
+        or comm[i] == "*"
+        or comm[i] == "/"
+        or comm[i] == "^"
+        or comm[i] == "%"
+    ):
+        return False
+    i += 1
+    if i == len(comm):
+        return False
+    if not (isnum(comm[i]) or comm[i] == "-" or comm[i] == "+"):
+        return False
+    if comm[i - 1] == "^" and comm[i] == "-":
+        return False
+    if comm[i - 1] == "%" and (comm[0] == "-" or comm[i] == "-"):
+        return False
+    if not isnum(comm[i]):
+        i += 1
+    if i == len(comm):
+        return False
+    while i < len(comm) and isnum(comm[i]):
+        i += 1
+    if i != len(comm):
+        return False
+    return True
