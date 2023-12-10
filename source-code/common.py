@@ -92,3 +92,10 @@ def syntax_check(comm):
     if i != len(comm):
         return False
     return True
+
+
+def zero(x):
+    for i in x:
+        if i != 0:
+            return False
+    return True
